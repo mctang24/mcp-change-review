@@ -31,9 +31,9 @@ curl -fsSL https://raw.githubusercontent.com/mctang24/mcp-change-review/main/ins
 | Command | Purpose |
 | --- | --- |
 | `mcpcr list` | Show discovered MCP servers. |
-| `mcpcr status` | Show baseline status and current config summary. |
-| `mcpcr diff` | Compare current MCP config against the baseline. |
-| `mcpcr accept` | Save the current MCP config as the new baseline. |
+| `mcpcr status` | Show whether the current directory already has a baseline. |
+| `mcpcr diff` | Compare the current MCP config against the baseline; the first run creates `.mcpcr-baseline.json` in the current directory. |
+| `mcpcr accept` | Confirm the current state as trusted after review, and save it as the new baseline. |
 | `mcpcr export md` | Write a Markdown report. |
 | `mcpcr export json` | Write a JSON report. |
 | `mcpcr diff --fail-on high` | Return a non-zero exit code when high risk is found. |
