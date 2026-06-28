@@ -1,0 +1,30 @@
+{
+  "name": "mcp-change-review",
+  "version": "0.1.0",
+  "description": "Local CLI for reviewing MCP configuration changes",
+  "type": "module",
+  "bin": {
+    "mcpcr": "./dist/src/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test \"dist/**/*.test.js\"",
+    "check": "npm run test"
+  },
+  "dependencies": {
+    "smol-toml": "^1.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.0",
+    "typescript": "^5.9.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT",
+  "private": true,
+  "files": [
+    "dist/src",
+    "package.json"
+  ]
+}
