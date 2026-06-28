@@ -1,8 +1,8 @@
 # mcp-change-review
 
-Review new MCP access before Claude Code or Codex uses it.
+Review MCP access changes before they reach Claude Code or Codex.
 
-See which MCP servers changed, what they can access locally, and whether they introduce obvious risks such as secrets, shell commands, or sensitive paths.
+Inspect changed MCP servers, see which local resources they can access, and catch obvious risks such as secrets, shell commands, and sensitive paths.
 
 <p translate="no">
   <a href="./package.json"><img alt="Node 20 plus" src="https://img.shields.io/badge/node-20%2B-2563EB?style=flat-square&amp;logo=node.js&amp;logoColor=white"></a>
@@ -16,9 +16,9 @@ English | [简体中文](./README.zh-CN.md)
 ## What it does
 
 - Discover MCP configuration used by Claude Code and Codex.
-- Create a local baseline, then compare added, removed, and changed MCP servers.
-- Flag common risks such as secrets, sensitive paths, command execution, and Docker `latest`.
-- Export terminal, Markdown, and JSON reports.
+- Create a local baseline and report added, removed, or changed MCP servers.
+- Flag secrets, sensitive paths, command execution, and Docker `latest`.
+- Print terminal output or export Markdown and JSON reports.
 
 ## Quick start
 
@@ -30,32 +30,32 @@ curl -fsSL https://raw.githubusercontent.com/mctang24/mcp-change-review/main/ins
 
 | Command | Purpose |
 | --- | --- |
-| `mcpcr list` | Show discovered MCP servers. |
-| `mcpcr status` | Show whether the current directory already has a baseline. |
-| `mcpcr diff` | Compare the current MCP config against the baseline; the first run creates `.mcpcr-baseline.json` in the current directory. |
-| `mcpcr accept` | Confirm the current state as trusted after review, and save it as the new baseline. |
-| `mcpcr export md` | Write a Markdown report. |
-| `mcpcr export json` | Write a JSON report. |
-| `mcpcr diff --fail-on high` | Return a non-zero exit code when high risk is found. |
+| `mcpcr list` | List discovered MCP servers. |
+| `mcpcr status` | Check whether the current directory has a baseline. |
+| `mcpcr diff` | Compare the current MCP config with the baseline; the first run creates `.mcpcr-baseline.json` in the current directory. |
+| `mcpcr accept` | Mark the reviewed state as trusted and save it as the new baseline. |
+| `mcpcr export md` | Generate a Markdown report. |
+| `mcpcr export json` | Generate a JSON report. |
+| `mcpcr diff --fail-on high` | Exit non-zero when high-risk changes are found. |
 
 ## Safety model
 
-`mcp-change-review` is deliberately local and deterministic.
+`mcp-change-review` is local and deterministic by design.
 
-- **It does not save secret values.**
-- **It does not modify Claude Code or Codex config.**
+- **It never stores secret values.**
+- **It never modifies Claude Code or Codex configuration.**
 - It records env/header names only.
 - It does not proxy, block, or intercept MCP tool calls.
-- It does not use an LLM to judge risk.
+- It does not use an LLM to assess risk.
 
 ## Supported clients
 
 | Client | Scope |
 | --- | --- |
-| Claude Code | local, project, and user MCP config |
-| Codex | user and trusted project MCP config |
+| Claude Code | local, project, and user-level MCP configuration |
+| Codex | user-level and trusted project MCP configuration |
 
-Validated with Claude Code `2.1.195` and Codex CLI `0.142.3`.
+Validated against Claude Code `2.1.195` and Codex CLI `0.142.3`.
 
 ## License
 

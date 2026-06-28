@@ -1,8 +1,8 @@
 # mcp-change-review
 
-在 Claude Code 或 Codex 使用新的 MCP server 前，先审查它新增了哪些本地访问权限。
+在 MCP 访问变更进入 Claude Code 或 Codex 前，先完成本地审查。
 
-查看哪些 MCP server 被新增或修改、它们可能访问哪些本机资源，以及是否引入密钥、命令执行、敏感路径等风险。
+检查 MCP server 的新增和修改，确认它们能访问哪些本机资源，并识别密钥、命令执行、敏感路径等明显风险。
 
 <p>
   <a href="./package.json"><img alt="Node 20 plus" src="https://img.shields.io/badge/node-20%2B-2563EB?style=flat-square&amp;logo=node.js&amp;logoColor=white"></a>
@@ -16,9 +16,9 @@
 ## 它能做什么
 
 - 发现 Claude Code 和 Codex 使用的 MCP 配置。
-- 创建本地基准快照，并对比 MCP server 的新增、删除和修改。
-- 识别密钥、敏感路径、命令执行、Docker `latest` 等常见风险。
-- 支持终端、Markdown、JSON 三种格式输出。
+- 创建本地基准快照，并报告 MCP server 的新增、删除和修改。
+- 识别密钥、敏感路径、命令执行和 Docker `latest`。
+- 支持终端输出，并可导出 Markdown 和 JSON 报告。
 
 ## 快速开始
 
@@ -30,20 +30,20 @@ curl -fsSL https://raw.githubusercontent.com/mctang24/mcp-change-review/main/ins
 
 | 命令 | 用途 |
 | --- | --- |
-| `mcpcr list` | 查看已发现的 MCP server。 |
-| `mcpcr status` | 查看当前目录是否已有基准快照。 |
+| `mcpcr list` | 列出已发现的 MCP server。 |
+| `mcpcr status` | 检查当前目录是否已有基准快照。 |
 | `mcpcr diff` | 对比当前 MCP 配置和基准快照；首次执行会在当前目录创建 `.mcpcr-baseline.json`。 |
-| `mcpcr accept` | 审查后确认当前状态可信，并保存为新的基准快照。 |
-| `mcpcr export md` | 导出 Markdown 报告。 |
-| `mcpcr export json` | 导出 JSON 报告。 |
-| `mcpcr diff --fail-on high` | 发现高风险时返回非零退出码。 |
+| `mcpcr accept` | 将审查后的当前状态标记为可信，并保存为新的基准快照。 |
+| `mcpcr export md` | 生成 Markdown 报告。 |
+| `mcpcr export json` | 生成 JSON 报告。 |
+| `mcpcr diff --fail-on high` | 发现高风险变更时以非零退出码退出。 |
 
 ## 安全边界
 
 `mcp-change-review` 是一个本地、确定性的审查工具。
 
-- **不保存密钥值。**
-- **不修改 Claude Code 或 Codex 配置。**
+- **绝不保存密钥值。**
+- **绝不修改 Claude Code 或 Codex 配置。**
 - 只记录 env/header 名称。
 - 不代理、阻断或拦截 MCP 工具调用。
 - 不依赖 LLM 判断风险。
@@ -52,8 +52,8 @@ curl -fsSL https://raw.githubusercontent.com/mctang24/mcp-change-review/main/ins
 
 | 客户端 | 范围 |
 | --- | --- |
-| Claude Code | 本地配置、项目配置、用户级配置 |
-| Codex | 用户级配置、受信任项目配置 |
+| Claude Code | 本地、项目级和用户级 MCP 配置 |
+| Codex | 用户级和受信任项目 MCP 配置 |
 
 已基于 Claude Code `2.1.195` 和 Codex CLI `0.142.3` 验证。
 
