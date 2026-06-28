@@ -23,7 +23,7 @@
 ## 快速开始
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/mctang24/mcp-change-review/main/install.sh | sh
+curl --http1.1 -fsSL https://raw.githubusercontent.com/mctang24/mcp-change-review/main/install.sh | sh
 ```
 
 ## 命令
