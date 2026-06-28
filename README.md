@@ -2,7 +2,7 @@
 
 Review MCP access changes before they reach Claude Code or Codex.
 
-Inspect changed MCP servers, see which local resources they can access, and catch obvious risks such as secrets, shell commands, and sensitive paths.
+Inspect MCP server changes, see which local resources they can access, and catch obvious risks such as secrets, shell commands, and sensitive paths.
 
 <p translate="no">
   <a href="./package.json"><img alt="Node 20 plus" src="https://img.shields.io/badge/node-20%2B-2563EB?style=flat-square&amp;logo=node.js&amp;logoColor=white"></a>
@@ -18,7 +18,7 @@ English | [简体中文](./README.zh-CN.md)
 - Discover MCP configuration used by Claude Code and Codex.
 - Create a local baseline and report added, removed, or changed MCP servers.
 - Flag secrets, sensitive paths, command execution, and Docker `latest`.
-- Print terminal output or export Markdown and JSON reports.
+- Print results in the terminal or export Markdown and JSON reports.
 
 ## Quick start
 
@@ -40,13 +40,13 @@ curl -fsSL https://raw.githubusercontent.com/mctang24/mcp-change-review/main/ins
 
 ## Safety model
 
-`mcp-change-review` is local and deterministic by design.
+`mcp-change-review` reads local MCP configuration and reports risks using fixed rules.
 
 - **It never stores secret values.**
 - **It never modifies Claude Code or Codex configuration.**
 - It records env/header names only.
 - It does not proxy, block, or intercept MCP tool calls.
-- It does not use an LLM to assess risk.
+- It uses fixed checks instead of LLM-based risk scoring.
 
 ## Supported clients
 

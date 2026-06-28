@@ -40,13 +40,13 @@ curl -fsSL https://raw.githubusercontent.com/mctang24/mcp-change-review/main/ins
 
 ## 安全边界
 
-`mcp-change-review` 是一个本地、确定性的审查工具。
+`mcp-change-review` 只读取本机 MCP 配置，并用固定规则生成风险报告。
 
 - **绝不保存密钥值。**
 - **绝不修改 Claude Code 或 Codex 配置。**
 - 只记录 env/header 名称。
 - 不代理、阻断或拦截 MCP 工具调用。
-- 不依赖 LLM 判断风险。
+- 使用固定检查规则，不依赖 LLM 判断风险。
 
 ## 支持范围
 
