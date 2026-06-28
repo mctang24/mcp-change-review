@@ -16,25 +16,14 @@ English | [简体中文](./README.zh-CN.md)
 ## What it does
 
 - Discover MCP configuration used by Claude Code and Codex.
-- Create a local baseline for the current MCP state.
-- Show added, removed, and changed MCP servers.
-- Flag high-signal risks: secret-like env/header names, `.env`, `.ssh`, broad home access, `sudo`, remote script execution, and Docker `latest`.
+- Create a local baseline, then compare added, removed, and changed MCP servers.
+- Flag common risks such as secrets, sensitive paths, command execution, and Docker `latest`.
 - Export terminal, Markdown, and JSON reports.
 
 ## Quick start
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/mctang24/mcp-change-review/main/install.sh | sh
-```
-
-```bash
-mcpcr diff
-```
-
-The first `diff` creates `.mcpcr-baseline.json` in the current directory. After you review and accept the current state:
-
-```bash
-mcpcr accept
 ```
 
 ## Commands
