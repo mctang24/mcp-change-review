@@ -23,7 +23,7 @@ English | [简体中文](./README.zh-CN.md)
 ## Quick start
 
 ```bash
-curl --http1.1 -fsSL https://raw.githubusercontent.com/mctang24/mcp-change-review/main/install.sh | sh
+curl -fsSL https://raw.githubusercontent.com/mctang24/mcp-change-review/main/install.sh | sh
 ```
 
 ## Commands

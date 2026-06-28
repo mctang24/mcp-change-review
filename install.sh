@@ -25,12 +25,17 @@ node -e 'const major = Number(process.versions.node.split(".")[0]); if (major < 
 tmp_dir="$(mktemp -d)"
 trap 'rm -rf "$tmp_dir"' EXIT INT TERM
 
+echo "Downloading mcp-change-review..."
 git clone --depth 1 --branch "$ref" "$repo" "$tmp_dir/repo" >/dev/null 2>&1
 cd "$tmp_dir/repo"
 
+echo "Installing dependencies..."
 npm ci >/dev/null
+
+echo "Building CLI..."
 npm run build >/dev/null
 
+echo "Installing mcpcr..."
 rm -rf "$app_dir"
 mkdir -p "$app_dir" "$install_dir"
 cp -R dist node_modules package.json package-lock.json "$app_dir"/
