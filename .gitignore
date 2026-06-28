@@ -1,0 +1,17 @@
+node_modules/
+dist/
+coverage/
+.mcpcr-baseline.json
+mcp-review.md
+mcp-review.json
+
+
+# Local-only project planning and validation notes
+docs/TECHNICAL_PLAN.md
+docs/CODEX_MCP_VALIDATION.md
+docs/CLAUDE_CODE_MCP_VALIDATION.md
+
+# Local-only project rules, roadmap, and docs
+AGENTS.md
+ROADMAP.md
+docs/
