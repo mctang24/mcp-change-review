@@ -1,8 +1,8 @@
 # mcp-change-review
 
-在 MCP 访问变更进入 Claude Code 或 Codex 前，先完成本地审查。
+信任新的 MCP 配置前，先看清它新增了哪些权限。
 
-检查 MCP server 的新增和修改，确认它们能访问哪些本机资源，并识别密钥、命令执行、敏感路径等明显风险。
+在安装、升级或共享 Claude Code 和 Codex 的 MCP 配置时，用 `mcp-change-review` 检查哪些 MCP server 发生了变化、它们能访问哪些本机资源，以及密钥、命令执行、敏感路径等明显风险。
 
 <p>
   <a href="./package.json"><img alt="Node 20 plus" src="https://img.shields.io/badge/node-20%2B-2563EB?style=flat-square&amp;logo=node.js&amp;logoColor=white"></a>

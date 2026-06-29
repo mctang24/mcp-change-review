@@ -1,8 +1,8 @@
 # mcp-change-review
 
-Review MCP access changes before they reach Claude Code or Codex.
+Before trusting a new MCP setup, review what changed.
 
-Inspect MCP server changes, see which local resources they can access, and catch obvious risks such as secrets, shell commands, and sensitive paths.
+Use `mcp-change-review` when installing, updating, or sharing MCP configuration for Claude Code or Codex. It shows which MCP servers changed, what local resources they can access, and obvious risks such as secrets, shell commands, and sensitive paths.
 
 <p translate="no">
   <a href="./package.json"><img alt="Node 20 plus" src="https://img.shields.io/badge/node-20%2B-2563EB?style=flat-square&amp;logo=node.js&amp;logoColor=white"></a>
