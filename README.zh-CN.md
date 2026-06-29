@@ -26,7 +26,7 @@
 curl -fsSL https://raw.githubusercontent.com/mctang24/mcp-change-review/main/install.sh | sh
 ```
 
-依赖 Node.js 20+、npm、git，并需要访问 GitHub 和 npm registry。
+依赖 Node.js 20+ 和 npm。
 
 ## 命令
 

@@ -26,7 +26,7 @@ English | [简体中文](./README.zh-CN.md)
 curl -fsSL https://raw.githubusercontent.com/mctang24/mcp-change-review/main/install.sh | sh
 ```
 
-Requires Node.js 20+, npm, git, and network access to GitHub and the npm registry.
+Requires Node.js 20+ and npm.
 
 ## Commands
 
