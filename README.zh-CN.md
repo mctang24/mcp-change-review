@@ -26,6 +26,8 @@
 curl -fsSL https://raw.githubusercontent.com/mctang24/mcp-change-review/main/install.sh | sh
 ```
 
+依赖 Node.js 20+ 和 npm。
+
 ## 命令
 
 - `mcpcr diff` - 对比当前 MCP 配置和基准快照；首次执行会创建 `.mcpcr-baseline.json`。
