@@ -26,6 +26,8 @@ English | [简体中文](./README.zh-CN.md)
 curl -fsSL https://raw.githubusercontent.com/mctang24/mcp-change-review/main/install.sh | sh
 ```
 
+Requires Node.js 20+, npm, git, and network access to GitHub and the npm registry.
+
 ## Commands
 
 - `mcpcr diff` - Compare the current MCP config with the baseline; the first run creates `.mcpcr-baseline.json`.
