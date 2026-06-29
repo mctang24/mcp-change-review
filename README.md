@@ -40,9 +40,7 @@ curl -fsSL https://raw.githubusercontent.com/mctang24/mcp-change-review/main/ins
 
 ## Example
 
-The example below shows a Codex setup after two common MCP server configuration changes: one filesystem server and one GitHub server. The server names are not treated as risky by themselves; `mcp-change-review` looks at the access that the configuration grants.
-
-In this example, `mcpcr diff` reports that Codex gained two MCP servers. The risk section highlights the specific permission changes being reviewed: the filesystem server was configured with broad home directory access, and the GitHub server was configured with a credential-like environment variable name. The report points to what changed so you can decide whether that access is expected.
+An MCP server gives an AI agent additional capabilities, such as reading local files or calling external services. In this Codex example, adding `filesystem` and `github` surfaces two permission changes worth reviewing: broad home-directory access and a credential-style environment variable name.
 
 ![Example mcpcr diff output for Codex MCP changes](./assets/example-codex-diff.png)
 

@@ -40,9 +40,7 @@ curl -fsSL https://raw.githubusercontent.com/mctang24/mcp-change-review/main/ins
 
 ## 示例
 
-下面的示例展示了 Codex 中两个常见 MCP server 配置发生变化后的审查结果：一个 filesystem server 和一个 GitHub server。server 名称本身不会被直接判定为风险；`mcp-change-review` 关注的是这次配置授予了哪些访问能力。
-
-在这个示例中，`mcpcr diff` 报告 Codex 新增了两个 MCP server。风险区域指出需要审查的具体权限变化：filesystem server 被配置为可访问较宽的 home 目录范围，GitHub server 被配置了 credential-like 环境变量名称。报告的作用是指出发生了什么变化，方便你判断这些访问是否符合预期。
+MCP server 会为 AI Agent 增加额外能力，例如读取本地文件或访问外部服务。这个 Codex 示例新增了 `filesystem` 和 `github`，`mcpcr diff` 标出两项值得审查的权限变化：较宽的 home 目录访问，以及类似凭据的环境变量名称。
 
 ![Codex MCP 配置变更的 mcpcr diff 示例输出](./assets/example-codex-diff.png)
 
