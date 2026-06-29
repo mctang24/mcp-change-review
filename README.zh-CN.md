@@ -40,7 +40,9 @@ curl -fsSL https://raw.githubusercontent.com/mctang24/mcp-change-review/main/ins
 
 ## 示例
 
-MCP server 会为 AI Agent 增加额外能力，例如读取本地文件或访问外部服务。这个 Codex 示例新增了 `filesystem` 和 `github`，`mcpcr diff` 标出两项值得审查的权限变化：较宽的 home 目录访问，以及类似凭据的环境变量名称。
+MCP server 会为 AI Agent 增加额外能力，例如读取本地文件或访问外部服务。
+
+这个 Codex 示例新增了 `filesystem` 和 `github`，`mcpcr diff` 标出两项值得审查的权限变化：较宽的 home 目录访问，以及类似凭据的环境变量名称。
 
 ![Codex MCP 配置变更的 mcpcr diff 示例输出](./assets/example-codex-diff.png)
 
