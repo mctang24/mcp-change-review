@@ -1,8 +1,8 @@
 # mcp-change-review
 
-在 MCP 访问变更进入 Claude Code 或 Codex 前，先完成本地审查。
+信任新的 MCP 配置前，先看清它新增了哪些权限。
 
-检查 MCP server 的新增和修改，确认它们能访问哪些本机资源，并识别密钥、命令执行、敏感路径等明显风险。
+在安装、升级或共享 Claude Code 和 Codex 的 MCP 配置时，用 `mcp-change-review` 检查哪些 MCP server 发生了变化、它们能访问哪些本机资源，以及密钥、命令执行、敏感路径等明显风险。
 
 <p>
   <a href="./package.json"><img alt="Node 20 plus" src="https://img.shields.io/badge/node-20%2B-2563EB?style=flat-square&amp;logo=node.js&amp;logoColor=white"></a>
@@ -37,6 +37,14 @@ curl -fsSL https://raw.githubusercontent.com/mctang24/mcp-change-review/main/ins
 | `mcpcr export md` | 生成 Markdown 报告。 |
 | `mcpcr export json` | 生成 JSON 报告。 |
 | `mcpcr diff --fail-on high` | 发现高风险变更时以非零退出码退出。 |
+
+## 示例
+
+MCP server 会为 AI Agent 增加额外能力，例如读取本地文件或访问外部服务。
+
+这个 Codex 示例新增了 `filesystem` 和 `github`，`mcpcr diff` 标出两项值得审查的权限变化：较宽的 home 目录访问，以及类似凭据的环境变量名称。
+
+![Codex MCP 配置变更的 mcpcr diff 示例输出](./assets/example-codex-diff.png)
 
 ## 安全边界
 

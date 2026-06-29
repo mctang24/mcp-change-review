@@ -1,8 +1,8 @@
 # mcp-change-review
 
-Review MCP access changes before they reach Claude Code or Codex.
+Before trusting a new MCP setup, review what changed.
 
-Inspect MCP server changes, see which local resources they can access, and catch obvious risks such as secrets, shell commands, and sensitive paths.
+Use `mcp-change-review` when installing, updating, or sharing MCP configuration for Claude Code or Codex. It shows which MCP servers changed, what local resources they can access, and obvious risks such as secrets, shell commands, and sensitive paths.
 
 <p translate="no">
   <a href="./package.json"><img alt="Node 20 plus" src="https://img.shields.io/badge/node-20%2B-2563EB?style=flat-square&amp;logo=node.js&amp;logoColor=white"></a>
@@ -37,6 +37,14 @@ curl -fsSL https://raw.githubusercontent.com/mctang24/mcp-change-review/main/ins
 | `mcpcr export md` | Generate a Markdown report. |
 | `mcpcr export json` | Generate a JSON report. |
 | `mcpcr diff --fail-on high` | Exit non-zero when high-risk changes are found. |
+
+## Example
+
+An MCP server gives an AI agent additional capabilities, such as reading local files or calling external services.
+
+In this Codex example, adding `filesystem` and `github` surfaces two permission changes worth reviewing: broad home-directory access and a credential-style environment variable name.
+
+![Example mcpcr diff output for Codex MCP changes](./assets/example-codex-diff.png)
 
 ## Safety model
 
