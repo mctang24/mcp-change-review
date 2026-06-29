@@ -28,13 +28,13 @@ curl -fsSL https://raw.githubusercontent.com/mctang24/mcp-change-review/main/ins
 
 ## 命令
 
-- `mcpcr list` - 列出已发现的 MCP server。
-- `mcpcr status` - 检查当前目录是否已有基准快照。
 - `mcpcr diff` - 对比当前 MCP 配置和基准快照；首次执行会创建 `.mcpcr-baseline.json`。
 - `mcpcr accept` - 将审查后的当前状态标记为可信，并保存为新的基准快照。
 - `mcpcr export md` - 生成 Markdown 报告。
 - `mcpcr export json` - 生成 JSON 报告。
 - `mcpcr diff --fail-on high` - 自动化场景中发现高风险变更时，以非零退出码退出。
+- `mcpcr list` - 列出已发现的 MCP server。
+- `mcpcr status` - 检查当前目录是否已有基准快照。
 
 ## 示例
 
