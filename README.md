@@ -28,15 +28,13 @@ curl -fsSL https://raw.githubusercontent.com/mctang24/mcp-change-review/main/ins
 
 ## Commands
 
-| Command | Purpose |
-| --- | --- |
-| `mcpcr list` | List discovered MCP servers. |
-| `mcpcr status` | Check whether the current directory has a baseline. |
-| `mcpcr diff` | Compare the current MCP config with the baseline; the first run creates `.mcpcr-baseline.json` in the current directory. |
-| `mcpcr accept` | Mark the reviewed state as trusted and save it as the new baseline. |
-| `mcpcr export md` | Generate a Markdown report. |
-| `mcpcr export json` | Generate a JSON report. |
-| `mcpcr diff --fail-on high` | Exit non-zero when high-risk changes are found. |
+- `mcpcr list` - List discovered MCP servers.
+- `mcpcr status` - Check whether the current directory has a baseline.
+- `mcpcr diff` - Compare the current MCP config with the baseline; the first run creates `.mcpcr-baseline.json`.
+- `mcpcr accept` - Mark the reviewed state as trusted and save it as the new baseline.
+- `mcpcr export md` - Generate a Markdown report.
+- `mcpcr export json` - Generate a JSON report.
+- `mcpcr diff --fail-on high` - Exit non-zero in automation when high-risk changes are found.
 
 ## Example
 
