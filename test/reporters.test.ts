@@ -69,6 +69,12 @@ test("renderTerminal groups changes and risks by client", () => {
   assert.match(output, /Changes: 1[\s\S]*codex:[\s\S]*Risks: 1[\s\S]*codex:/);
 });
 
+test("renderTerminal can color the risks header", () => {
+  const output = renderTerminal(report(), { color: true });
+  assert.match(output, /\u001b\[1;31mRisks: 1\u001b\[0m/);
+  assert.match(output, /- high: demo: Sensitive name/);
+});
+
 test("renderJson preserves stable top-level and nested field names", () => {
   const parsed = JSON.parse(renderJson(report()));
   assert.deepEqual(Object.keys(parsed), ["diff", "risks"]);

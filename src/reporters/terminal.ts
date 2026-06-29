@@ -6,7 +6,12 @@ function changeLabel(change: ServerChange): string {
   return server ? `${change.kind}: ${server.client}/${server.name}${scope}` : change.kind;
 }
 
-export function renderTerminal(report: ReviewReport): string {
+function formatRiskHeader(count: number, color: boolean): string {
+  const label = "Risks: " + count;
+  return color && count > 0 ? "\u001b[1;31m" + label + "\u001b[0m" : label;
+}
+
+export function renderTerminal(report: ReviewReport, options: { color?: boolean } = {}): string {
   const lines: string[] = [];
   const { diff, risks } = report;
   lines.push("MCP Change Review");
@@ -33,12 +38,12 @@ export function renderTerminal(report: ReviewReport): string {
   }
 
   lines.push("");
-  lines.push(`Risks: ${risks.length}`);
+  lines.push(formatRiskHeader(risks.length, options.color === true));
   if (risks.length === 0) lines.push("No risks detected by enabled deterministic rules.");
   const riskClients = [...new Set(risks.map((risk) => risk.client))].sort();
   for (const client of riskClients) {
     lines.push(`${client}:`);
-    for (const item of risks.filter((risk) => risk.client === client)) lines.push(`- ${item.level}: ${item.serverName}: ${item.reason}`);
+    for (const item of risks.filter((risk) => risk.client === client)) lines.push("- " + item.level + ": " + item.serverName + ": " + item.reason);
   }
   return `${lines.join("\n")}\n`;
 }
