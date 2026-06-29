@@ -40,7 +40,7 @@ curl -fsSL https://raw.githubusercontent.com/mctang24/mcp-change-review/main/ins
 
 An MCP server gives an AI agent additional capabilities, such as reading local files or calling external services.
 
-In this Codex example, adding `filesystem` and `github` surfaces two permission changes worth reviewing: broad home-directory access and a credential-style environment variable name.
+In this Codex example, `filesystem` is listed as a new MCP server, while `github` is flagged for exposing a credential-style environment variable name.
 
 ![Example mcpcr diff output for Codex MCP changes](./assets/example-codex-diff.png)
 
