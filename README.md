@@ -44,6 +44,8 @@ In this Codex example, adding `filesystem` and `github` surfaces two permission 
 
 ![Example mcpcr diff output for Codex MCP changes](./assets/example-codex-diff.png)
 
+In this example, `github` is flagged because the configuration exposes a credential-style environment variable name, not because the GitHub MCP server is inherently unsafe.
+
 ## Safety model
 
 `mcp-change-review` reads local MCP configuration and reports risks using fixed rules.
