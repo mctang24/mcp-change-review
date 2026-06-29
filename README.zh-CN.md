@@ -38,6 +38,14 @@ curl -fsSL https://raw.githubusercontent.com/mctang24/mcp-change-review/main/ins
 | `mcpcr export json` | 生成 JSON 报告。 |
 | `mcpcr diff --fail-on high` | 发现高风险变更时以非零退出码退出。 |
 
+## 示例
+
+下面的示例展示了 Codex 新增两个常见 MCP server 后的审查结果：filesystem server 和 GitHub server。MCP server 会扩展 AI Agent 可访问的本机资源或外部服务，因此在信任新的配置前，需要先审查配置变更带来的权限变化。
+
+`mcpcr diff` 报告 Codex 新增了 filesystem MCP server 和 GitHub MCP server。风险区域指出了两个关键权限变化：filesystem server 获得了较宽的 home 目录访问范围，GitHub server 暴露了 credential-like 环境变量访问。
+
+![Codex MCP 配置变更的 mcpcr diff 示例输出](./assets/example-codex-diff.png)
+
 ## 安全边界
 
 `mcp-change-review` 只读取本机 MCP 配置，并用固定规则生成风险报告。

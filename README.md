@@ -38,6 +38,14 @@ curl -fsSL https://raw.githubusercontent.com/mctang24/mcp-change-review/main/ins
 | `mcpcr export json` | Generate a JSON report. |
 | `mcpcr diff --fail-on high` | Exit non-zero when high-risk changes are found. |
 
+## Example
+
+The example below shows a Codex setup after two common MCP servers were added: a filesystem server and a GitHub server. MCP servers can expand what an AI agent can reach locally or through external services, so configuration changes should be reviewed before being trusted.
+
+`mcpcr diff` reports that Codex gained access to a filesystem MCP server and a GitHub MCP server. The risk section highlights two important permission changes: broad home directory access through the filesystem server, and credential-style environment access for the GitHub server.
+
+![Example mcpcr diff output for Codex MCP changes](./assets/example-codex-diff.png)
+
 ## Safety model
 
 `mcp-change-review` reads local MCP configuration and reports risks using fixed rules.
