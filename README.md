@@ -36,7 +36,8 @@ curl -fsSL https://raw.githubusercontent.com/mctang24/mcp-change-review/main/ins
 | `mcpcr accept` | Mark the reviewed state as trusted and save it as the new baseline. |
 | `mcpcr export md` | Generate a Markdown report. |
 | `mcpcr export json` | Generate a JSON report. |
-| `mcpcr diff --fail-on high` | Exit non-zero when high-risk changes are found. |
+
+Use `mcpcr diff --fail-on high` in automation to exit non-zero when high-risk changes are found.
 
 ## Example
 
